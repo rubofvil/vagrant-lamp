@@ -8,8 +8,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   # Forward ports to Apache and MySQL
-  config.vm.network "forwarded_port", guest: 80, host: 8888
-  config.vm.network "forwarded_port", guest: 3306, host: 8889
+  config.vm.network "forwarded_port", guest: 80, host: 8887
+  config.vm.network "forwarded_port", guest: 3306, host: 8886
+
+  config.vm.synced_folder "/hdd/repositorios", "/home/vagrant/repositories"
+  config.vm.synced_folder "/hdd/plataformas", "/home/vagrant/plataformas"
+
 
 	config.vm.provision "shell", path: "provision.sh"
 
